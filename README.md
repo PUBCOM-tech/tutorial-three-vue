@@ -1,28 +1,37 @@
-# hello-three-vue
+# tutorial-three-vue
 
-This template should help get you started developing with Vue 3 in Vite.
+## 概要
 
-## Recommended IDE Setup
+このリポジトリでは、NAYUTA株式会社のブログで紹介しているVueとThree.jsでの開発チュートリアル記事の、成果物を公開しています。
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+よろしければ [NAYUTA株式会社の「#Web3D」記事一覧](https://note.nayuta-tech.co.jp/menu/165722) もご確認ください。
 
-## Customize configuration
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## 目次
 
-## Project Setup
+### Vue 3 と Three.js で箱を表示
+
+* [ブログ記事](https://note.nayuta-tech.co.jp/n/n60bb28445272)
+* [GitHub branch](../../tree/blog-20220610)
+
+
+## 各種コマンド
+
+### 初回セットアップ
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### 開発用ビルド
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+* 実行中は、ソースコード保存時に自動でビルドされる
+
+### 本番用ビルド
 
 ```sh
 npm run build
