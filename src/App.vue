@@ -1,5 +1,6 @@
 <script>
 import * as THREE from 'three'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 
 export default {
   data() {
@@ -10,7 +11,9 @@ export default {
     this.scene = null
     this.camera = null
     this.renderer = null
+
     this.cube = null
+    this.shop = null
 
     /**
      * reactiveなデータ
@@ -22,7 +25,7 @@ export default {
 
   mounted() {
     this.init()
-    this.addBox()
+    this.addModels()
     this.animate()
   },
 
@@ -44,14 +47,24 @@ export default {
         false
       )
 
-      this.camera.position.z = 5
+      // 光源
+      const light = new THREE.AmbientLight(0xe0e0e0)
+      this.scene.add(light)
+
+      // カメラ位置
+      this.camera.position.z = 10
+      this.camera.position.y = 3
     },
 
-    addBox() {
+    addModels() {
+      // 箱
       const geometry = new THREE.BoxGeometry()
       const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 })
       this.cube = new THREE.Mesh(geometry, material)
       this.scene.add(this.cube)
+
+      // お店
+      this.shop = new Shop(this.scene)
     },
 
     animate() {
@@ -62,6 +75,26 @@ export default {
 
       this.renderer.render(this.scene, this.camera)
     }
+  }
+}
+
+class Shop {
+  constructor(scene) {
+    const loader = new GLTFLoader()
+
+    loader.load(
+      '/3d/copain.glb',
+
+      (gltf) => {
+        scene.add(gltf.scene)
+      },
+
+      undefined,
+
+      (error) => {
+        console.error(error)
+      }
+    )
   }
 }
 </script>
