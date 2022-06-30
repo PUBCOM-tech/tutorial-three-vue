@@ -6,6 +6,7 @@
 
 よろしければ [NAYUTA株式会社の「#Web3D」記事一覧](https://note.nayuta-tech.co.jp/menu/165722) もご確認ください。
 
+<br>
 
 ## 目次
 
@@ -14,6 +15,12 @@
 * [ブログ記事](https://note.nayuta-tech.co.jp/n/n60bb28445272)
 * [GitHub branch](../../tree/blog-20220610)
 
+### Vue 3 と Three.js で3Dモデルを表示
+
+* [ブログ記事](https://note.nayuta-tech.co.jp/n/ndadfe4d6f1bc)
+* [GitHub branch](../../tree/blog-20220630)
+
+<br>
 
 ## 各種コマンド
 
@@ -29,6 +36,7 @@ npm install
 npm run dev
 ```
 
+* http://localhost:3000/ でアクセスできる
 * 実行中は、ソースコード保存時に自動でビルドされる
 
 ### 本番用ビルド
@@ -36,3 +44,13 @@ npm run dev
 ```sh
 npm run build
 ```
+
+<br>
+
+## ライセンス
+
+ソースコードについては自由に使ってください。
+
+### 3Dモデル
+
+* copain.glb は、NAYUTA株式会社が権利を有します。
