@@ -1,6 +1,8 @@
 <script>
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
+import { HTMLMesh } from 'three/examples/jsm/interactive/HTMLMesh.js'
+import { InteractiveGroup } from 'three/examples/jsm/interactive/InteractiveGroup.js'
 
 export default {
   data() {
@@ -15,6 +17,8 @@ export default {
     this.cube = null
     this.shop = null
 
+    this.htmlMesh = null
+
     /**
      * reactiveなデータ
      * * ここでThree.jsのデータを定義すると、重くなるか動かなくなるので注意
@@ -26,6 +30,7 @@ export default {
   mounted() {
     this.init()
     this.addModels()
+    this.addHtmlMesh()
     this.animate()
   },
 
@@ -67,11 +72,29 @@ export default {
       this.shop = new Shop(this.scene)
     },
 
+    addHtmlMesh() {
+      this.htmlMesh = new HTMLMesh(this.$refs.modalRef)
+      this.htmlMesh.position.set(0, 5, 5)
+      this.htmlMesh.scale.setScalar(10)
+
+      // HTMLMeshはInteractiveGroupを経由しないとボタンも押せない
+      const group = new InteractiveGroup(this.renderer, this.camera)
+      group.add(this.htmlMesh)
+
+      this.scene.add(group)
+    },
+
+    onClick() {
+      alert('hello')
+    },
+
     animate() {
       requestAnimationFrame(this.animate)
 
       this.cube.rotation.x += 0.01
       this.cube.rotation.y += 0.01
+
+      this.htmlMesh.rotation.x += 0.01
 
       this.renderer.render(this.scene, this.camera)
     }
@@ -100,7 +123,19 @@ class Shop {
 </script>
 
 <template>
-  <canvas ref="canvasRef" class="fullscreen"></canvas>
+  <div>
+    <canvas ref="canvasRef" class="fullscreen"></canvas>
+    <div ref="modalRef" class="modal3d">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing<br />
+        elit. Possimus expedita necessitatibus, at magni<br />
+        optio sequi cumque repellat fugit rem ratione <br />
+        laudantium perferendis officiis eveniet alias atque<br />
+        debitis, itaque qui. Repellendus!
+      </p>
+      <button @click="onClick">Hello</button>
+    </div>
+  </div>
 </template>
 
 <style scoped>
@@ -110,5 +145,14 @@ class Shop {
   left: 0;
   width: 100%;
   height: 100%;
+}
+.modal3d {
+  width: 400px;
+  height: 200px;
+  padding: 20px;
+  border-width: 10px;
+  border-color: white;
+  border-style: solid;
+  background-color: bisque;
 }
 </style>
