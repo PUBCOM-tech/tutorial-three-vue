@@ -25,6 +25,11 @@
 * [ブログ記事](https://note.nayuta-tech.co.jp/n/n6a33ad32845c)
 * [GitHub branch](../../tree/blog-20220909)
 
+### Vue 3 と Three.js で3D空間にHTMLを表示（CSS3D編）
+
+* [ブログ記事](https://note.nayuta-tech.co.jp/n/nf35c9cf53e92)
+* [GitHub branch](../../tree/blog-20221020)
+
 <br>
 
 ## 各種コマンド
