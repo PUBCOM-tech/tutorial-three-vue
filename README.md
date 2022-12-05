@@ -4,7 +4,7 @@
 
 このリポジトリでは、NAYUTA株式会社のブログで紹介しているVueとThree.jsでの開発チュートリアル記事の、成果物を公開しています。
 
-よろしければ [NAYUTA株式会社の「#Web3D」記事一覧](https://note.nayuta-tech.co.jp/menu/165722) もご確認ください。
+よろしければ [NAYUTA株式会社の「Vue3 + Three.js」マガジン](https://note.nayuta-tech.co.jp/m/mc9a0a30d21ba) もご確認ください。
 
 <br>
 
